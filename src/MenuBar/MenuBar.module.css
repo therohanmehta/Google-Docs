@@ -1,0 +1,77 @@
+.wrapper{
+display: flex;
+
+
+}
+.docIcon{
+    width: 2.3rem;
+    max-height: 3rem;
+}
+.innerWrapper{
+margin-left: 10px;
+width: 100%;
+}
+.innerWrapper :only-child{
+    cursor: pointer;
+   
+}
+
+.leftSection{
+    display: flex;
+    justify-content: start;
+    width: 40rem;
+    gap: 10px;
+    
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+.leftSection >span{
+    font-size: 18px;
+}
+.header{
+    display: flex;
+    width: 100%;
+    /* border: 1px solid; */
+    justify-content: space-between;
+}
+.rightSection{
+    display: flex;
+    gap: 1.5rem;
+    width: 30rem;
+
+    justify-content: end;
+    align-items: center;
+}
+.rightSection img{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.videoIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.videoIcon:hover{
+    background-color: whitesmoke;
+}
+.videoIcon:active{
+    background-color:gray;
+}
+.videoDropDown{
+    background-color: whitesmoke;
+    position: absolute;
+    top: 3rem;
+    right: 13rem;
+}
+.menu{
+    /* border: 1px solid; */
+    width: 70%;
+    position: relative;
+    top: -30%;
+}
