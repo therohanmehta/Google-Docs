@@ -1,66 +1,28 @@
 import * as React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useRecoilState } from "recoil";
+import { atomFileDropDown } from "../AtomData/atom";
+import { VideoIconDropDown } from '../Components/VideoIconDropDown'
+import EditDropDown from "../Components/EditDropDown";
+import FileDropDown from "../Components/FileDropDown";
 import styles from "./MenuBar.module.css";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import DriveFileMoveOutlinedIcon from "@mui/icons-material/DriveFileMoveOutlined";
 import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
 import Button from "@mui/material/Button";
 import CloudDoneOutlinedIcon from "@mui/icons-material/CloudDoneOutlined";
-import ArticleIcon from '@mui/icons-material/Article';
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import KeyboardOutlinedIcon from "@mui/icons-material/KeyboardOutlined";
 import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
-import DropDown from "../Components/DropDown";
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import FolderOpen from "@mui/icons-material/FolderOpen";
-import FileCopyOutlined from "@mui/icons-material/FileCopyOutlined";
-
+import ViewDropDown from "../Components/ViewDropDown";
+import InsertDropDown from "../Components/InsertDropDown";
+import FormatDropDown from "../Components/FormatDropDown";
 export default function MenuBar() {
-
-  const videoDropDown = {
-    style:{color:'black'},
-    endIcon:<ArrowDropDownOutlinedIcon/>,
-    head: <VideoCallOutlinedIcon />,
-    list: [
-      {
-        text: "Start a new meeting",
-        icon: <AddOutlinedIcon />,
-      },
-       { text: "Use a meeting code",
-      icon:<KeyboardOutlinedIcon/>}
-    ]
-  }
-  const fileDropDown = {
-    style: {
-      color: 'black',
-      textTransform: 'none',
-      padding: '0px 0px',
-      minWidth:'50px'
-      
-    },
-    listStyle: {
-      fontSize:'small'
-    },
-    head: "File",
-    list:[{
-      text: "New",
-      icon: <ArticleIcon fontSize="small" />,
-    }, {
-      text: 'Open',
-      icon:<FolderOpen fontSize="small"/>
-    },{
-      text: 'Make a Copy',
-      icon:<FileCopyOutlined fontSize="small"/>
-    },{
-      text: 'Download',
-      icon:<FileDownloadOutlinedIcon fontSize="small"/>
-    },]
-  }
   return (
     <div>
+      
       <div className={styles.wrapper}>
         <img className={styles.docIcon} src="/docImg.png" />
         <div className={styles.innerWrapper}>
@@ -74,8 +36,7 @@ export default function MenuBar() {
             <div className={styles.rightSection}>
               <HistoryOutlinedIcon fontSize="medium" />
               <InsertCommentOutlinedIcon fontSize="medium" />
-
-              <DropDown array={videoDropDown}   />
+            <VideoIconDropDown/>
 
               <Button
                 sx={{
@@ -94,9 +55,13 @@ export default function MenuBar() {
                 alt=""
               />
             </div>
-          </div>
+          </div> 
           <div className={styles.menu}>
-          <DropDown array={fileDropDown}  />
+            <FileDropDown />
+            <EditDropDown />
+            <ViewDropDown />
+            <InsertDropDown />
+            <FormatDropDown/>
           </div>
         </div>
       </div>
