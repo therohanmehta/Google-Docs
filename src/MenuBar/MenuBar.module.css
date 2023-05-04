@@ -8,8 +8,9 @@ display: flex;
     max-height: 3rem;
 }
 .innerWrapper{
-margin-left: 10px;
+
 width: 100%;
+
 }
 .innerWrapper :only-child{
     cursor: pointer;
@@ -21,7 +22,7 @@ width: 100%;
     justify-content: start;
     width: 40rem;
     gap: 10px;
-    
+    margin-left: 13px;
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
 }
 .leftSection >span{
@@ -30,7 +31,7 @@ width: 100%;
 .header{
     display: flex;
     width: 100%;
-    border: 1px solid;
+  
     justify-content: space-between;
 }
 .rightSection{
@@ -70,8 +71,9 @@ width: 100%;
     right: 13rem;
 }
 .menu{
-    border: 1px solid;
+    display: flex;
     width: 70%;
     position: relative;
     top: -30%;
+    gap: -5px;
 }
