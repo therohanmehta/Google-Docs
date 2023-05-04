@@ -6,8 +6,8 @@ function App() {
 
   return (
     <>
-      <MenuBar/>
       <TextArea/>
+      <MenuBar/>
     </>
   )
 }

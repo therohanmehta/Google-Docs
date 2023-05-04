@@ -8,7 +8,7 @@ function TextArea() {
     <br />
     <br />
     <div className={style.wholeArea}>
-        <divsta contentEditable className={style.txtArea}></divsta>
+        <div contentEditable className={style.txtArea}></div>
       
 
 

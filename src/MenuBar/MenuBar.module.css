@@ -30,7 +30,7 @@ width: 100%;
 .header{
     display: flex;
     width: 100%;
-    border: 1px solid;
+    /* border: 1px solid; */
     justify-content: space-between;
 }
 .rightSection{
@@ -70,7 +70,7 @@ width: 100%;
     right: 13rem;
 }
 .menu{
-    border: 1px solid;
+    /* border: 1px solid; */
     width: 70%;
     position: relative;
     top: -30%;
