@@ -1,0 +1,15 @@
+.dropDownBtn{
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dropDownBtn:hover{
+    background-color: whitesmoke;
+}
+.dropDownBtn:active{
+    background-color: rgb(206, 206, 206);
+}

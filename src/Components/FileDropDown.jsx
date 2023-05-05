@@ -1,3 +1,4 @@
+import ArticleIcon from "@mui/icons-material/Article";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -7,16 +8,14 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
-import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
-import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
-import VideoCallOutlined from "@mui/icons-material/VideoCallOutlined";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import AddIcon from "@mui/icons-material/Add";
-import KeyboardOutlined from "@mui/icons-material/KeyboardOutlined";
+import styles from './DropDown.module.css'
+import { Divider } from "@mui/material";
+import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
+import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
 
-function DropDown(props) {
-
+export default function FileDropDown() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -55,18 +54,17 @@ function DropDown(props) {
     <>
       <Stack direction="row" spacing={2}>
         <div>
-          <Button
-            sx={props.array.style}
+        <button
+           className={styles.dropDownBtn}
             ref={anchorRef}
             id="composition-button"
             aria-controls={open ? "composition-menu" : undefined}
             aria-expanded={open ? "true" : undefined}
             aria-haspopup="true"
             onClick={handleToggle}
-            endIcon={props.array.endIcon||""}
           >
-                   {props.array.head}
-          </Button>
+            File
+          </button>
           <Popper
             open={open}
             anchorEl={anchorRef.current}
@@ -85,19 +83,29 @@ function DropDown(props) {
               >
                 <Paper>
                   <ClickAwayListener onClickAway={handleClose}>
-                    <MenuList 
-                      
+                    <MenuList
+                      sx={{ width: "20rem" }}
                       autoFocusItem={open}
                       id="composition-menu"
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      {props.array.list.map((ele) => (
-                        <MenuItem sx={props.array.listStyle}
-                          onClick={handleClose}>
-                         {ele.icon||""}&nbsp; {ele.text||ele}
-                        </MenuItem>
-                      ))}
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                      <ArticleIcon fontSize="small"/>&nbsp;  New
+                      </MenuItem>
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                      <FolderOpenOutlinedIcon fontSize="small"/>&nbsp;  Open
+                      </MenuItem>
+                      
+                                          <Divider/>
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                      <FileDownloadOutlinedIcon fontSize="small"/>&nbsp;  Download
+                                          </MenuItem>
+                                          
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                      <DriveFileRenameOutlineOutlinedIcon fontSize="small"/>&nbsp;  Rename
+                      </MenuItem>
+                      
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
@@ -109,5 +117,3 @@ function DropDown(props) {
     </>
   );
 }
-
-export default DropDown;
