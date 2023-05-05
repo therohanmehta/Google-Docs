@@ -8,13 +8,13 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
-import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
+import { useRef } from "react";
 import VideoCallOutlined from "@mui/icons-material/VideoCallOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardOutlined from "@mui/icons-material/KeyboardOutlined";
 
 export function VideoIconDropDown() {
-
+const linkRef = useRef(null)
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -29,6 +29,14 @@ export function VideoIconDropDown() {
 
     setOpen(false);
   };
+  const handleNewMeeting = () => {
+    linkRef.current.click()
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  }
 
   function handleListKeyDown(event) {
     if (event.key === "Tab") {
@@ -93,12 +101,14 @@ export function VideoIconDropDown() {
                     >
                       
                         <MenuItem sx={{width:'20rem'}}
-                          onClick={handleClose}>
-                         <AddIcon/>&nbsp;"Start a new meeting"
+                          onClick={handleNewMeeting}>
+                        <AddIcon />&nbsp; Start a new meeting
+                        <a ref={linkRef} href="https://meet.google.com/?authuser=0" target='blank' style={{display:'none'}}>Link</a>
                         </MenuItem>
                         <MenuItem sx={{width:'20rem'}}
                           onClick={handleClose}>
-                         <KeyboardOutlined/>&nbsp;"Use a meeting code"
+                        <KeyboardOutlined />&nbsp; Use a meeting code
+                        
                         </MenuItem>
                   
                     </MenuList>
