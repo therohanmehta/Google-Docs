@@ -8,7 +8,7 @@ import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import styles from './DropDown.module.css'
 import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
-import { Divider } from "@mui/material";
+
 
 export default function ExtensionsDropDown() {
   const [open, setOpen] = React.useState(false);

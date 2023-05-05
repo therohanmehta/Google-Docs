@@ -1,6 +1,4 @@
 import * as React from "react";
-import { useRecoilState } from "recoil";
-import { atomFileDropDown } from "../AtomData/atom";
 import { VideoIconDropDown } from '../Components/VideoIconDropDown'
 import EditDropDown from "../Components/EditDropDown";
 import FileDropDown from "../Components/FileDropDown";
@@ -10,15 +8,16 @@ import DriveFileMoveOutlinedIcon from "@mui/icons-material/DriveFileMoveOutlined
 import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
 import Button from "@mui/material/Button";
 import CloudDoneOutlinedIcon from "@mui/icons-material/CloudDoneOutlined";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import KeyboardOutlinedIcon from "@mui/icons-material/KeyboardOutlined";
-import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
-import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import ViewDropDown from "../Components/ViewDropDown";
 import InsertDropDown from "../Components/InsertDropDown";
 import FormatDropDown from "../Components/FormatDropDown";
+import ToolsDropDown from '../Components/ToolsDropDown'
+import ExtensionsDropDown from '../Components/ExtensionsDropDown'
+import HelpDropDown from '../Components/HelpDropDown'
+
+
 export default function MenuBar() {
   return (
     <div>
@@ -61,7 +60,10 @@ export default function MenuBar() {
             <EditDropDown />
             <ViewDropDown />
             <InsertDropDown />
-            <FormatDropDown/>
+            <FormatDropDown />
+            <ToolsDropDown />
+            <ExtensionsDropDown />
+            <HelpDropDown/>
           </div>
         </div>
       </div>
