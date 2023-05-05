@@ -14,6 +14,7 @@ function Button({
   MdOutlineInsertPhoto,
   BiAlignLeft,
   MdOutlineInsertLink,
+
   BiCommentAdd,
   MdFormatLineSpacing,
   MdChecklist,
@@ -24,6 +25,7 @@ function Button({
   MdFormatClear,
   handleBold,
   handleColor
+
 }) {
   return (
     <div>
@@ -41,6 +43,7 @@ function Button({
         {MdOutlineInsertPhoto}
         {BiAlignLeft}
         {MdOutlineInsertLink}
+
         {BiCommentAdd}
         {MdFormatLineSpacing}
         {MdChecklist}
@@ -49,6 +52,7 @@ function Button({
         {MdFormatIndentDecrease}
         {MdFormatIndentIncrease}
         {MdFormatClear}
+
       </button>
     </div>
   );

@@ -84,7 +84,7 @@ function ActionBar() {
         <Button
            MdOutlineInsertLink={<MdOutlineInsertLink style={{ fontSize: "1rem" }} />}
           />
-          <Button
+            <Button
            BiCommentAdd={<BiCommentAdd style={{ fontSize: "1rem" }} />}
           />
         <Button
