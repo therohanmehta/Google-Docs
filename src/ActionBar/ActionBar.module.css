@@ -11,6 +11,7 @@
     margin-top: 1rem;
     border-radius: 1rem;
     
+    
 }
 
 .innerContainer{
@@ -18,8 +19,24 @@
     width: 97%;
     margin-left: auto;
     margin-right: auto;
+    /* justify-content: center; */
+    align-items: center;
     
 }
 .leftActionBar{
+    display: flex;
+}
+
+.Select{
+    height: 22px;
+    width: 7rem;
+}
+
+.zoom:hover{
+    background-color: #dadce0;
+    cursor: pointer;
+}
+
+.textType{
     display: flex;
 }
