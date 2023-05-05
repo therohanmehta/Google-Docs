@@ -11,6 +11,9 @@ import { BiItalic } from "react-icons/bi";
 import { ImUnderline } from "react-icons/im";
 import { MdOutlineFormatColorText } from "react-icons/md";
 import { FaHighlighter } from "react-icons/fa";
+import { MdOutlineInsertPhoto } from "react-icons/md";
+import {BiAlignLeft } from "react-icons/bi";
+import {MdOutlineInsertLink } from "react-icons/md";
 
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -68,6 +71,17 @@ function ActionBar() {
           <Button ImUnderline={<ImUnderline style={{ fontSize: "1rem" }} />} />
           <Button MdOutlineFormatColorText={<MdOutlineFormatColorText style={{ fontSize: "1rem" }} />} />
           <Button FaHighlighter={<FaHighlighter style={{ fontSize: "1rem" }} />} />
+        </div>
+        <div className={style.boxD}>
+        <Button
+           MdOutlineInsertLink={<MdOutlineInsertLink style={{ fontSize: "1rem" }} />}
+          />
+        <Button
+            MdOutlineInsertPhoto={<MdOutlineInsertPhoto style={{ fontSize: "1rem" }} />}
+          />
+          <Button
+            BiAlignLeft={<BiAlignLeft style={{ fontSize: "1rem" }} />}
+          />
         </div>
       </div>
     </div>
