@@ -19,7 +19,11 @@
     /* align-items: center; */
     justify-content: center;
 }
+
+
+
 /*   *{ 
+
     position: fixed;
 	--ruler-num-c: #88;
 	--ruler-num-fz: 10px;
@@ -51,7 +55,8 @@
 		calc(var(--ruler-unit) * var(--ruler2-space) * var(--ruler-x)) var(--ruler2-h),
 		var(--ruler1-h) calc(var(--ruler-unit) * var(--ruler1-space) * var(--ruler-y)),
 		var(--ruler2-h) calc(var(--ruler-unit) * var(--ruler2-space) * var(--ruler-y));
-}
- */
+
+} */
+
 
 
