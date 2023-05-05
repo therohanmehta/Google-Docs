@@ -14,6 +14,18 @@ function Button({
   MdOutlineInsertPhoto,
   BiAlignLeft,
   MdOutlineInsertLink,
+
+  BiCommentAdd,
+  MdFormatLineSpacing,
+  MdChecklist,
+  MdFormatListBulleted,
+  MdFormatListNumbered,
+  MdFormatIndentDecrease,
+  MdFormatIndentIncrease,
+  MdFormatClear,
+  handleBold,
+  handleColor
+
 }) {
   return (
     <div>
@@ -31,6 +43,16 @@ function Button({
         {MdOutlineInsertPhoto}
         {BiAlignLeft}
         {MdOutlineInsertLink}
+
+        {BiCommentAdd}
+        {MdFormatLineSpacing}
+        {MdChecklist}
+        {MdFormatListBulleted}
+        {MdFormatListNumbered}
+        {MdFormatIndentDecrease}
+        {MdFormatIndentIncrease}
+        {MdFormatClear}
+
       </button>
     </div>
   );
