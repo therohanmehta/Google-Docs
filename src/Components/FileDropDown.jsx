@@ -11,11 +11,12 @@ import Stack from "@mui/material/Stack";
 import styles from './DropDown.module.css'
 import { Divider } from "@mui/material";
 import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
-import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
-
+import { useRecoilValue } from "recoil";
+import { atomInputRef } from "../AtomData/atom";
 export default function FileDropDown() {
+  const inputRef = useRecoilValue(atomInputRef)
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -30,7 +31,15 @@ export default function FileDropDown() {
 
     setOpen(false);
   };
+  function handleNew() {
+    
+    inputRef.current.innerHTML = ""
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
 
+    setOpen(false);
+ }
   function handleListKeyDown(event) {
     if (event.key === "Tab") {
       event.preventDefault();
@@ -90,7 +99,7 @@ export default function FileDropDown() {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleNew}>
                       <ArticleIcon fontSize="small"/>&nbsp;  New
                       </MenuItem>
                       <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>

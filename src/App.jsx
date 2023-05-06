@@ -11,8 +11,10 @@ function App() {
 
   return (
     <>
-       <MenuBar/>
-       <ActionBar/>
+      <div className='header'>
+        <MenuBar />
+       <ActionBar/></div>
+      
     
        <TextArea/>
 

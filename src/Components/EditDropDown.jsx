@@ -12,9 +12,12 @@ import RedoOutlinedIcon from "@mui/icons-material/RedoOutlined";
 import ContentCutOutlinedIcon from "@mui/icons-material/ContentCutOutlined";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import ContentPasteOutlinedIcon from "@mui/icons-material/ContentPasteOutlined";
+import { atom, useRecoilValue } from "recoil";
+import { atomInputRef } from "../AtomData/atom";
 import { Divider } from "@mui/material";
 
 export default function EditDropDown() {
+  const inputRef = useRecoilValue(atomInputRef)
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -48,7 +51,22 @@ export default function EditDropDown() {
 
     prevOpen.current = open;
   }, [open]);
+ function handleUndo(){
+   document.execCommand("undo")
+   if (anchorRef.current && anchorRef.current.contains(event.target)) {
+    return;
+  }
 
+  setOpen(false);
+ }
+ function handleRedo(){
+   document.execCommand("redo")
+   if (anchorRef.current && anchorRef.current.contains(event.target)) {
+    return;
+  }
+
+  setOpen(false);
+ }
   return (
     <>
       <Stack direction="row" spacing={2}>
@@ -89,11 +107,11 @@ export default function EditDropDown() {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleUndo}>
                         <UndoOutlinedIcon fontSize="small" />
                         &nbsp; Undo
                       </MenuItem>
-                      <MenuItem  sx={{ fontSize: "small" }} onClick={handleClose}><RedoOutlinedIcon fontSize="small" />
+                      <MenuItem  sx={{ fontSize: "small" }} onClick={handleRedo}><RedoOutlinedIcon fontSize="small" />
                                               &nbsp; Redo</MenuItem>
                                           <Divider/>
                       <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}><ContentCutOutlinedIcon fontSize="small" />

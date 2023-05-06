@@ -1,14 +1,20 @@
 
 import React,{useRef} from 'react'
 import style from './TextArea.module.css'
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
-
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { atomFileName, atomInputRef } from '../AtomData/atom';
+import { useEffect } from 'react';
 function TextArea() {
   const divRef = useRef(null);
-
+  const [inputref, setInputRef] = useRecoilState(atomInputRef)
+  const fileName = useRecoilValue(atomFileName)
+  useEffect(() => {
+    setInputRef(divRef)
+  })
    async function downloadPdf(){
       const sheetContent = document.getElementById('textPage');
     const canvas = await html2canvas(sheetContent,);
@@ -24,17 +30,6 @@ function TextArea() {
     }
 
 
-    function printPage(){
-      
-      const content = divRef.current.innerHTML;
-      const printWindow = window.open('');
-      printWindow.document.write(`
-    <title> my odf </title>
-            ${content}
-      `);
-      printWindow.document.close();
-      printWindow.print();
-    }
 
   return (
     < >
@@ -45,7 +40,7 @@ function TextArea() {
 
      <PictureAsPdfIcon onClick={downloadPdf}/>
         <div id='textPage' ref={divRef} contentEditable={true} className={style.txtArea}></div>
-     <LocalPrintshopIcon onClick={printPage}/>
+
 
       
 

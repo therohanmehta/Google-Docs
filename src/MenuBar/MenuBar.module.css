@@ -1,5 +1,5 @@
 .maindiv{
-  
+  width: 99%;
   position: fixed;
   top:0;
   background-color: #f9fbfd;
@@ -8,7 +8,7 @@
 .wrapper {
   display: flex;
   margin-left: 10px;
-
+width: 100%;
  
 }
 .docIcon {
@@ -44,11 +44,10 @@
 .rightSection {
   display: flex;
   gap: 1.5rem;
-  width: 60rem;
+  width: 40%;
   margin-top: 10px;
   justify-content: end;
   align-items: center;
-
 
 }
 .rightSection img {
