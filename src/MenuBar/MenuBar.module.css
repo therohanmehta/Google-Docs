@@ -1,6 +1,14 @@
+.maindiv{
+  
+  position: fixed;
+  top:0;
+  background-color: #f9fbfd;
+}
+
 .wrapper {
   display: flex;
   margin-left: 10px;
+
  
 }
 .docIcon {
@@ -35,10 +43,12 @@
 .rightSection {
   display: flex;
   gap: 1.5rem;
-  width: 30rem;
+  width: 60rem;
   margin-top: 10px;
   justify-content: end;
   align-items: center;
+
+
 }
 .rightSection img {
   height: 2rem;

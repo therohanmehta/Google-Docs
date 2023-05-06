@@ -20,7 +20,7 @@ import HelpDropDown from '../Components/HelpDropDown'
 
 export default function MenuBar() {
   return (
-    <div>
+    <div className={styles.maindiv}>
       
       <div className={styles.wrapper}>
         <img className={styles.docIcon} src="/docImg.png" />
