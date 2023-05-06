@@ -94,9 +94,12 @@
 
 #inputColor{
     position: absolute;
-    top: 8rem;
-    left:30rem;
-   width: 5rem;
-   max-height: 0.5rem;
-    z-index: -1;
+    top: 2rem;
+    left:25rem;
+   width: 0rem;
+   max-height: 0rem;
+    z-index: -20;
+    border: none;
+    outline: none;
+    color: #dadce0;
 }

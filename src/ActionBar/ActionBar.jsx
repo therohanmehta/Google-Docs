@@ -27,10 +27,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import FontJustifyDropDown from "../Components/FontJustifyDropDown";
-import { atomInputRef } from "../AtomData/atom";
+import { atomFileName, atomInputRef } from "../AtomData/atom";
 
 function ActionBar() {
   const inputRef = useRecoilValue(atomInputRef)
+  const fileName = useRecoilValue(atomFileName)
   const imageRef = useRef(null)
   const colorRef = useRef(null)
   const bcgColorRef =useRef(null)
@@ -80,13 +81,24 @@ function ActionBar() {
       document.execCommand("insertImage","",URL.createObjectURL(event.target.files[0]));
     }
   }
+  function printPage(){
+      
+    const content = inputRef.current.innerHTML;
+    const printWindow = window.open('');
+    printWindow.document.write(`
+  <title> ${fileName} </title>
+          ${content}
+    `);
+    printWindow.document.close();
+    printWindow.print();
+  }
   return (
     <div className={style.container} >
       <div className={style.innerContainer}>
         <div className={style.leftActionBar}>
           <button onClick={handleUndo} ><BiUndo style={{ fontSize: "1.2rem" }} /></button>
           <button onClick={handleRedo}><BiRedo style={{ fontSize: "1.2rem" }} /></button>
-          <button ><AiOutlinePrinter style={{ fontSize: "1.2rem" }} /></button>
+          <button onClick={printPage} ><AiOutlinePrinter style={{ fontSize: "1.2rem" }} /></button>
           <Button
             MdSpellcheck={<MdSpellcheck style={{ fontSize: "1rem" }} />}
           />

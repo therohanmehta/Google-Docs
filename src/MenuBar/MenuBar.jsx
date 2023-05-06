@@ -16,24 +16,29 @@ import FormatDropDown from "../Components/FormatDropDown";
 import ToolsDropDown from '../Components/ToolsDropDown'
 import ExtensionsDropDown from '../Components/ExtensionsDropDown'
 import HelpDropDown from '../Components/HelpDropDown'
-
-
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
+import { useRecoilState } from "recoil";
+import { atomFileName } from "../AtomData/atom";
 export default function MenuBar() {
+
+  const [fileName, setFileName] = useRecoilState(atomFileName)
+  const [isFav, setIsFav] = React.useState(false)
   return (
     <div className={styles.maindiv}>
       
       <div className={styles.wrapper}>
-        <img className={styles.docIcon} src="/docImg.png" />
+        <img  className={styles.docIcon} src="/docImg.png" />
         <div className={styles.innerWrapper}>
           <div className={styles.header}>
             <div className={styles.leftSection}>
-              <span contentEditable="true">Untitled Document</span>&nbsp;
-              <StarBorderOutlinedIcon fontSize="small" />
+              <span id="fileName" onKeyUp={()=>setFileName(document.getElementById('fileName').innerText)} contentEditable="true">Untitled Document</span>&nbsp;
+              {isFav ? <StarOutlinedIcon onClick={() => setIsFav(!isFav)} style={{color:'royalblue'}} fontSize="small"/>
+                : <StarBorderOutlinedIcon onClick={() => setIsFav(!isFav)}  fontSize="small"/>}   
               <DriveFileMoveOutlinedIcon fontSize="small" />
               <CloudDoneOutlinedIcon fontSize="small" />
             </div>
             <div className={styles.rightSection}>
-              <HistoryOutlinedIcon fontSize="medium" />
+              <HistoryOutlinedIcon onClick={()=>console.log(fileName)} fontSize="medium" />
               <InsertCommentOutlinedIcon fontSize="medium" />
             <VideoIconDropDown/>
 
