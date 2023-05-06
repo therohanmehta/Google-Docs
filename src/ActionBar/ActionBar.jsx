@@ -81,7 +81,7 @@ function ActionBar() {
     }
   }
   return (
-    <div className={style.container}>
+    <div className={style.container} >
       <div className={style.innerContainer}>
         <div className={style.leftActionBar}>
           <button onClick={handleUndo} ><BiUndo style={{ fontSize: "1.2rem" }} /></button>
@@ -96,7 +96,19 @@ function ActionBar() {
         </div>
 
         <div className={style.zoomSelector}>
-          <FormControl className={style.zoom} sx={{ m: 1 }}>
+        <form action="/action_page.php">
+  
+  <select name="cars" id="cars">
+    <option value="volvo">50%</option>
+    <option value="saab">75%</option>
+    <option value="opel">90%</option>
+    <option value="audi">100%</option>
+    <option value="audi">125%</option>
+    <option value="audi">150%</option>
+    <option value="audi">200%</option>
+  </select>
+
+  {/* <FormControl className={style.zoom} sx={{ m: 1 }}>
             <Select
               value={zoom}
               onChange={handleChange}
@@ -118,7 +130,9 @@ function ActionBar() {
               <MenuItem value={150}>150%</MenuItem>
               <MenuItem value={200}>200%</MenuItem>
             </Select>
-          </FormControl>
+          </FormControl> */}
+</form>
+         
         </div>
         <div className={style.textType}>
           <button onClick={handleBold}><BsTypeBold  style={{ fontSize: "1rem", }} /></button>
