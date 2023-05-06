@@ -11,6 +11,17 @@ import { BiItalic } from "react-icons/bi";
 import { ImUnderline } from "react-icons/im";
 import { MdOutlineFormatColorText } from "react-icons/md";
 import { FaHighlighter } from "react-icons/fa";
+import { MdOutlineInsertPhoto } from "react-icons/md";
+import {BiAlignLeft } from "react-icons/bi";
+import {MdOutlineInsertLink } from "react-icons/md";
+import {BiCommentAdd } from "react-icons/bi";
+import {MdFormatLineSpacing } from "react-icons/md";
+import {MdChecklist } from "react-icons/md";
+import {MdFormatListBulleted } from "react-icons/md";
+import {MdFormatListNumbered } from "react-icons/md";
+import {MdFormatIndentDecrease } from "react-icons/md";
+import {MdFormatIndentIncrease } from "react-icons/md";
+import {MdFormatClear } from "react-icons/md";
 
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -68,6 +79,44 @@ function ActionBar() {
           <Button ImUnderline={<ImUnderline style={{ fontSize: "1rem" }} />} />
           <Button MdOutlineFormatColorText={<MdOutlineFormatColorText style={{ fontSize: "1rem" }} />} />
           <Button FaHighlighter={<FaHighlighter style={{ fontSize: "1rem" }} />} />
+        </div>
+        <div className={style.boxD}>
+        <Button
+           MdOutlineInsertLink={<MdOutlineInsertLink style={{ fontSize: "1rem" }} />}
+          />
+            <Button
+           BiCommentAdd={<BiCommentAdd style={{ fontSize: "1rem" }} />}
+          />
+        <Button
+            MdOutlineInsertPhoto={<MdOutlineInsertPhoto style={{ fontSize: "1rem" }} />}
+          />
+          
+        </div>
+        <div className={style.boxE}>
+        <Button
+            BiAlignLeft={<BiAlignLeft style={{ fontSize: "1rem" }} />}
+          />
+          <Button
+            MdFormatLineSpacing={<MdFormatLineSpacing style={{ fontSize: "1rem" }} />}
+          />
+           <Button
+            MdChecklist={<MdChecklist style={{ fontSize: "1rem" }} />}
+          />
+            <Button
+            MdFormatListBulleted={<MdFormatListBulleted style={{ fontSize: "1rem" }} />}
+          />
+            <Button
+            MdFormatListNumbered={<MdFormatListNumbered style={{ fontSize: "1rem" }} />}
+          />
+          <Button
+            MdFormatIndentDecrease={<MdFormatIndentDecrease style={{ fontSize: "1rem" }} />}
+          />
+          <Button
+            MdFormatIndentIncrease={<MdFormatIndentIncrease style={{ fontSize: "1rem" }} />}
+          />
+          <Button
+            MdFormatClear={<MdFormatClear style={{ fontSize: "1rem" }} />}
+          />
         </div>
       </div>
     </div>

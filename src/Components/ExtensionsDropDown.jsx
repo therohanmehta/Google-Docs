@@ -1,5 +1,4 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import Grow from "@mui/material/Grow";
 import Paper from "@mui/material/Paper";
@@ -7,17 +6,14 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
-import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
-import { useRef } from "react";
-import VideoCallOutlined from "@mui/icons-material/VideoCallOutlined";
-import AddIcon from "@mui/icons-material/Add";
-import KeyboardOutlined from "@mui/icons-material/KeyboardOutlined";
+import styles from './DropDown.module.css'
+import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
 
-export function VideoIconDropDown() {
-const linkRef = useRef(null)
+
+export default function ExtensionsDropDown() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-
+    const scriptIcon = "https://www.gstatic.com/script/apps_script_1x_48dp.png"
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -29,14 +25,6 @@ const linkRef = useRef(null)
 
     setOpen(false);
   };
-  const handleNewMeeting = () => {
-    linkRef.current.click()
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
-  }
 
   function handleListKeyDown(event) {
     if (event.key === "Tab") {
@@ -61,19 +49,17 @@ const linkRef = useRef(null)
     <>
       <Stack direction="row" spacing={2}>
         <div>
-          <Button
-            sx={{color:'black'}}
+        <button
+           className={styles.dropDownBtn}
             ref={anchorRef}
             id="composition-button"
             aria-controls={open ? "composition-menu" : undefined}
             aria-expanded={open ? "true" : undefined}
             aria-haspopup="true"
             onClick={handleToggle}
-            
           >
-            <VideoCallOutlined fontSize="large" />
-            <ArrowDropDownOutlinedIcon/>
-          </Button>
+            Extensions
+          </button>
           <Popper
             open={open}
             anchorEl={anchorRef.current}
@@ -92,25 +78,21 @@ const linkRef = useRef(null)
               >
                 <Paper>
                   <ClickAwayListener onClickAway={handleClose}>
-                    <MenuList 
-                      sx={{width:'20rem'}}
+                    <MenuList
+                      sx={{ width: "20rem" }}
                       autoFocusItem={open}
                       id="composition-menu"
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      
-                        <MenuItem sx={{width:'20rem'}}
-                          onClick={handleNewMeeting}>
-                        <AddIcon />&nbsp; Start a new meeting
-                        <a ref={linkRef} href="https://meet.google.com/?authuser=0" target='blank' style={{display:'none'}}>Link</a>
-                        </MenuItem>
-                        <MenuItem sx={{width:'20rem'}}
-                          onClick={handleClose}>
-                        <KeyboardOutlined />&nbsp; Use a meeting code
-                        
-                        </MenuItem>
-                  
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                       <PlaylistAddOutlinedIcon fontSize="small"/>&nbsp; Add-ons
+                                          </MenuItem>
+                                       
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                        <img src={scriptIcon} className={styles.scriptIcon} /> &nbsp; App Script
+                      </MenuItem>
+                   
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
@@ -122,5 +104,3 @@ const linkRef = useRef(null)
     </>
   );
 }
-
-

@@ -21,10 +21,12 @@
     margin-right: auto;
     /* justify-content: center; */
     align-items: center;
+    gap: 2rem;
     
 }
 .leftActionBar{
     display: flex;
+    gap: 1rem;
 }
 
 .Select{
@@ -39,4 +41,16 @@
 
 .textType{
     display: flex;
+    gap: 1rem;
 }
+.boxD{
+    display: flex;
+
+    gap: 1rem;
+}
+
+.boxE{
+    display: flex;
+    gap: 1rem;
+}
+
