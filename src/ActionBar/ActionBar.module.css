@@ -17,6 +17,13 @@
     
     
 }
+.container button{
+    background-color: none;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
 
 .innerContainer{
@@ -27,13 +34,25 @@
     /* justify-content: center; */
     align-items: center;
     gap: 2rem;
+
     
 }
 .leftActionBar{
     display: flex;
     gap: 1rem;
 }
-
+.leftActionBar button{
+    background-color: none;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+}
+.leftActionBar button:hover{
+    background-color: #d2dbee;
+}
+.leftActionBar button:active{
+    background-color: #98a2b7;
+}
 .Select{
     height: 22px;
     width: 7rem;
@@ -48,6 +67,19 @@
     display: flex;
     gap: 1rem;
 }
+.textType button{
+    background-color: none;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+
+}
+.textType button:hover{
+    background-color: #d2dbee;
+}
+.textType button:active{
+    background-color: #98a2b7;
+}
 .boxD{
     display: flex;
 
@@ -57,5 +89,14 @@
 .boxE{
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
 
+#inputColor{
+    position: absolute;
+    top: 8rem;
+    left:30rem;
+   width: 5rem;
+   max-height: 0.5rem;
+    z-index: -1;
+}

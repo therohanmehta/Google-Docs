@@ -1,3 +1,4 @@
+
 import React,{useRef} from 'react'
 import style from './TextArea.module.css'
 import html2canvas from 'html2canvas';
@@ -34,14 +35,18 @@ function TextArea() {
       printWindow.document.close();
       printWindow.print();
     }
+
   return (
     < >
     <br />
-    <br />
+      <br />
+
     <div className={style.wholeArea}>
+
      <PictureAsPdfIcon onClick={downloadPdf}/>
         <div id='textPage' ref={divRef} contentEditable={true} className={style.txtArea}></div>
      <LocalPrintshopIcon onClick={printPage}/>
+
       
 
 

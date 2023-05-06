@@ -1,7 +1,7 @@
 
 import ActionBar from './ActionBar/ActionBar'
 import './App.css'
-
+import IconBar from './IconBar/IconBar'
 
 
 import MenuBar from './MenuBar/MenuBar'
@@ -13,7 +13,9 @@ function App() {
     <>
        <MenuBar/>
        <ActionBar/>
+    
        <TextArea/>
+
     </>
   )
 }

@@ -1,7 +1,7 @@
 import { atom } from "recoil"
 
 
-export const atomFileDropDown = atom({
-    key: 'atomFileDropDown',
-    default:{}
+export const atomInputRef = atom({
+    key: 'atomInputRef',
+    default:null
 })
