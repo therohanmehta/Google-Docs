@@ -26,6 +26,7 @@
 }
 .leftSection > span {
   font-size: 18px;
+  height: 1rem;
 }
 .header {
   display: flex;

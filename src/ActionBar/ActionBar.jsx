@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useRef, useState} from "react";
 import style from "./ActionBar.module.css";
 import Button from "../atoms/button/Button";
 import { BiUndo } from "react-icons/bi";
@@ -22,25 +22,71 @@ import {MdFormatListNumbered } from "react-icons/md";
 import {MdFormatIndentDecrease } from "react-icons/md";
 import {MdFormatIndentIncrease } from "react-icons/md";
 import {MdFormatClear } from "react-icons/md";
-
+import { useRecoilValue } from "recoil";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import FontJustifyDropDown from "../Components/FontJustifyDropDown";
+import { atomInputRef } from "../AtomData/atom";
 
 function ActionBar() {
+  const inputRef = useRecoilValue(atomInputRef)
+  const imageRef = useRef(null)
+  const colorRef = useRef(null)
+  const bcgColorRef =useRef(null)
+  const [color, setColor] = useState("black")
+
   const [zoom, setZoom] = React.useState("");
   const handleChange = (event) => {
     setZoom(event.target.value);
   };
+  function handleBold() {
+   document.execCommand("bold")
+  }
+  function handleItalic() {
+   document.execCommand("italic")
+  }
+  function handleUnderLine() {
+   document.execCommand("underline")
+  }
+  function handleColorClick() {
+    colorRef.current.click()
+  }
+  function handleColorChange(event) {
+    document.execCommand("foreColor","", event.target.value)
+    setColor(event.target.value)
+  }
+  function handleBcgColorClick() {
+    bcgColorRef.current.click()
+  }
+  function handleBcgColorChange(event) {
+    document.execCommand('backColor', "", event.target.value)
+      
+  }
+  function handleUndo() {
+    document.execCommand("undo")
+
+  }
+  function handleRedo() {
+    document.execCommand("redo")
+
+  }
+  function handleInputImage() {
+    imageRef.current.click();
+  }
+  function handleImageChange(event) {
+    if (event.target.files[0] ) {
+      console.log(event.target.files[0])
+      document.execCommand("insertImage","",URL.createObjectURL(event.target.files[0]));
+    }
+  }
   return (
     <div className={style.container}>
       <div className={style.innerContainer}>
         <div className={style.leftActionBar}>
-          <Button BiUndo={<BiUndo style={{ fontSize: "1rem" }} />} />
-          <Button BiRedo={<BiRedo style={{ fontSize: "1rem" }} />} />
-          <Button
-            AiOutlinePrinter={<AiOutlinePrinter style={{ fontSize: "1rem" }} />}
-          />
+          <button onClick={handleUndo} ><BiUndo style={{ fontSize: "1.2rem" }} /></button>
+          <button onClick={handleRedo}><BiRedo style={{ fontSize: "1.2rem" }} /></button>
+          <button ><AiOutlinePrinter style={{ fontSize: "1.2rem" }} /></button>
           <Button
             MdSpellcheck={<MdSpellcheck style={{ fontSize: "1rem" }} />}
           />
@@ -57,6 +103,7 @@ function ActionBar() {
               displayEmpty
               sx={{
                 border: "none",
+                
               }}
               inputProps={{ "aria-label": "Without label" }}
               className={style.Select}
@@ -74,11 +121,13 @@ function ActionBar() {
           </FormControl>
         </div>
         <div className={style.textType}>
-          <Button BsTypeBold={<BsTypeBold style={{ fontSize: "1rem" }} />} />
-          <Button BiItalic={<BiItalic style={{ fontSize: "1rem" }} />} />
-          <Button ImUnderline={<ImUnderline style={{ fontSize: "1rem" }} />} />
-          <Button MdOutlineFormatColorText={<MdOutlineFormatColorText style={{ fontSize: "1rem" }} />} />
-          <Button FaHighlighter={<FaHighlighter style={{ fontSize: "1rem" }} />} />
+          <button onClick={handleBold}><BsTypeBold  style={{ fontSize: "1rem", }} /></button>
+          <button onClick={handleItalic}><BiItalic style={{ fontSize: "1rem" }} /></button>
+          <button onClick={handleUnderLine}><ImUnderline style={{ fontSize: "1rem", }} /></button>
+          <button onClick={handleColorClick}><MdOutlineFormatColorText  style={{ color:color, fontSize: "1rem" }} /></button>
+          <input id={style.inputColor} type='color' ref={colorRef} onChange={handleColorChange}  />
+          <button onClick={handleBcgColorClick}><FaHighlighter style={{ fontSize: "1rem" }} /></button>
+          <input id={style.inputColor} type='color' ref={bcgColorRef} onChange={handleBcgColorChange}  />
         </div>
         <div className={style.boxD}>
         <Button
@@ -87,15 +136,14 @@ function ActionBar() {
             <Button
            BiCommentAdd={<BiCommentAdd style={{ fontSize: "1rem" }} />}
           />
-        <Button
-            MdOutlineInsertPhoto={<MdOutlineInsertPhoto style={{ fontSize: "1rem" }} />}
-          />
+        <button onClick={handleInputImage}>
+         <MdOutlineInsertPhoto style={{ fontSize: "1rem" }} />
+          </button>
+          <input onChange={handleImageChange} ref={imageRef} accept="image/*" type='file' hidden />
           
         </div>
         <div className={style.boxE}>
-        <Button
-            BiAlignLeft={<BiAlignLeft style={{ fontSize: "1rem" }} />}
-          />
+        <FontJustifyDropDown/>
           <Button
             MdFormatLineSpacing={<MdFormatLineSpacing style={{ fontSize: "1rem" }} />}
           />
