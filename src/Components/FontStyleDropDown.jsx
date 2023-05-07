@@ -5,23 +5,23 @@ import { atomInputRef } from "../AtomData/atom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
-import { fontSize } from "../IconBar/data";
+import {  fontStyle } from "../IconBar/data";
 import styles from './DropDown.module.css'
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 
-export default function FontSizeDropDown() {
+export default function FontStyleDropDown() {
   const inputRef = useRecoilValue(atomInputRef);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selected, setSelected] = useState(4);
+  const [selected, setSelected] = useState("Normal Text");
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-    function handleFontSizeChange(fontSize) {
-        console.log(fontSize);
-        document.execCommand("fontSize", "", fontSize);
-        setSelected(fontSize);
+    function handleFontStyleChange(tag,text) {
+      
+        document.execCommand("formatBlock", "", tag);
+        setSelected(text);
       
         setAnchorEl(null);
     }
@@ -33,7 +33,8 @@ export default function FontSizeDropDown() {
         
           <Button
               
-        sx={{
+                sx={{
+            width:'8rem',
           color: "black",
                  border:'1px solid black',
           textTransform:'none'
@@ -46,10 +47,10 @@ export default function FontSizeDropDown() {
           
       >
               {selected}
-             
+             <ArrowDropDownOutlinedIcon/>
       </Button>
       <Menu
-        onChange={handleFontSizeChange}
+        onChange={handleFontStyleChange}
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -59,15 +60,15 @@ export default function FontSizeDropDown() {
         }}
         sx={{ display: "flex", border:'1px solid' }}
       >
-        {fontSize.map((ele) => (
+        {fontStyle.map((ele) => (
           <MenuItem
-            onClick={() => handleFontSizeChange(ele)}
+            onClick={() => handleFontStyleChange(ele.tag,ele.text)}
             sx={{
               
-              width: "5rem",
+              width: "10rem",
             }}
           >
-            {ele}
+            {ele.text}
           </MenuItem>
         ))}
           </Menu>

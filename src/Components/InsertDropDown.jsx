@@ -26,8 +26,10 @@ import CalendarViewDayOutlinedIcon from '@mui/icons-material/CalendarViewDayOutl
 
 import { Divider, SwipeableDrawer } from "@mui/material";
 import ContentCopyOutlined from "@mui/icons-material/ContentCopyOutlined";
+import { useRef } from "react";
 
 export default function InsertDropDown() {
+  const imageRef = useRef(null)
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -68,7 +70,24 @@ export default function InsertDropDown() {
 
     prevOpen.current = open;
   }, [open]);
+  function handleInputImage() {
+    imageRef.current.click();
+  
+  }
+  function handleImageChange(event) {
+    if (event.target.files[0] ) {
 
+      let imgUrl = URL.createObjectURL(event.target.files[0]);
+      let img = document.createElement("img");
+
+      img.style.maxWidth = "50%"; 
+      img.style.maxHeight = "50%"; 
+
+      img.src = imgUrl;
+      document.execCommand("insertHTML", false, img.outerHTML);
+    }
+    handleClose(" ")
+  }
   return (
     <>
       <Stack direction="row" spacing={2}>
@@ -111,10 +130,11 @@ export default function InsertDropDown() {
                     >
                       <MenuItem
                         sx={{fontSize: "small"   }}
-                        onClick={handleClose}
+                        onClick={handleInputImage}
                       >
                         <ImageOutlinedIcon fontSize="small" />
                         &nbsp; Image
+                        <input onChange={handleImageChange} ref={imageRef} accept="image/*" type='file' hidden />
                       </MenuItem>
                       <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
                       <TableChartOutlinedIcon fontSize="small" />

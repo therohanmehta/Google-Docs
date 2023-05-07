@@ -32,6 +32,7 @@ import { atomFileName, atomInputRef } from "../AtomData/atom";
 import FontFamilyDropDown from "../Components/FontFamilyDropDown";
 import FontSizeDropDown from "../Components/FontSizeDropDown";
 import SizeDropDown from "../Components/SizeDropDown";
+import FontStyleDropDown from "../Components/FontStyleDropDown";
 
 function ActionBar() {
   const inputRef = useRecoilValue(atomInputRef)
@@ -138,11 +139,11 @@ function ActionBar() {
         <form action="/action_page.php">
   
 
-            <div style={{display:'flex'}}>
-            <SizeDropDown />
-         
-              <FontFamilyDropDown />
-              <FontSizeDropDown/>
+            <div style={{display:'flex', width:'20rem', }}>
+               <SizeDropDown />
+               <FontStyleDropDown/>
+                <FontFamilyDropDown />
+                <FontSizeDropDown/>
         </div>
         
   {/* <FormControl className={style.zoom} sx={{ m: 1 }}>
