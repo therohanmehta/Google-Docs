@@ -1,6 +1,9 @@
 import React,{useRef, useState} from "react";
 import style from "./ActionBar.module.css";
 import Button from "../atoms/button/Button";
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import { BiUndo } from "react-icons/bi";
 import { BiRedo } from "react-icons/bi";
 import { AiOutlinePrinter } from "react-icons/ai";
@@ -81,6 +84,21 @@ function ActionBar() {
       document.execCommand("insertImage","",URL.createObjectURL(event.target.files[0]));
     }
   }
+  async function downloadPDF (){
+  const sheetContent = inputRef.current;
+  const canvas = await html2canvas(sheetContent,);
+  const imageData = canvas.toDataURL("image/png");
+  const pdfDoc = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "a4",
+    compress: false,
+  });
+  pdfDoc.addImage(imageData, "PNG", 0, 0, 210, 297, "", "FAST");
+  pdfDoc.save(`${fileName}.pdf`);
+  console.log(inputRef.current.innerHTML)
+  }
+
   function printPage(){
       
     const content = inputRef.current.innerHTML;
@@ -88,7 +106,7 @@ function ActionBar() {
     printWindow.document.write(`
   <title> ${fileName} </title>
           ${content}
-    `);
+`);
     printWindow.document.close();
     printWindow.print();
   }
@@ -107,6 +125,7 @@ function ActionBar() {
           />
         </div>
 
+          <button onClick={downloadPDF} style={{padding:'0.1px'}}><PictureAsPdfIcon/></button>
         <div className={style.zoomSelector}>
         <form action="/action_page.php">
   
@@ -196,5 +215,4 @@ function ActionBar() {
     </div>
   );
 }
-
 export default ActionBar;

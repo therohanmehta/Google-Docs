@@ -20,28 +20,21 @@
     justify-content: center;
 	position: relative;
 	top: 120px;
-}
 
+ /* Css for the side ruler */
 
-
-/*   *{ 
-
-    position: fixed;
-	--ruler-num-c: #88;
-	--ruler-num-fz: 10px;
-	--ruler-num-pi: 0.75ch;
 	--ruler-unit: 1px;
 	--ruler-x: 1;
 	--ruler-y: 1;
 
 	--ruler1-bdw: 1px;
-	--ruler1-c:  #BBB;
-	--ruler1-h: 8px;
+	--ruler1-c:  #000000;
+	--ruler1-h: 15px;
 	--ruler1-space: 5;
 
 	--ruler2-bdw: 1px;
-	--ruler2-c:  #BBB;
-	--ruler2-h: 20px;
+	--ruler2-c:  #000000;
+	--ruler2-h: 35px;
 	--ruler2-space: 50;
 
   background-attachment: fixed;
@@ -58,7 +51,7 @@
 		var(--ruler1-h) calc(var(--ruler-unit) * var(--ruler1-space) * var(--ruler-y)),
 		var(--ruler2-h) calc(var(--ruler-unit) * var(--ruler2-space) * var(--ruler-y));
 
-} */
+} 
 
 
 
