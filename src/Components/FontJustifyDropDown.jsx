@@ -85,7 +85,7 @@ export default function FontJustifyDropDown() {
           &nbsp;
           <MdFormatAlignJustify
             fontSize="1rem"
-            onClick={() => handleF(<MdFormatAlignJustify fontSize="1rem"/>)}
+            onClick={() => handleFullAlign(<MdFormatAlignJustify fontSize="1rem"/>)}
           />
         </MenuItem>
       </Menu>

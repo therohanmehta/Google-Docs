@@ -51,21 +51,14 @@ export default function EditDropDown() {
 
     prevOpen.current = open;
   }, [open]);
- function handleUndo(){
-   document.execCommand("undo")
-   if (anchorRef.current && anchorRef.current.contains(event.target)) {
-    return;
-  }
 
-  setOpen(false);
- }
- function handleRedo(){
-   document.execCommand("redo")
-   if (anchorRef.current && anchorRef.current.contains(event.target)) {
-    return;
-  }
-
-  setOpen(false);
+  function handleAction(action) {
+    document.execCommand(action)
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+  
+    setOpen(false);
  }
   return (
     <>
@@ -107,18 +100,18 @@ export default function EditDropDown() {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleUndo}>
+                      <MenuItem sx={{ fontSize: "small" }} onClick={()=>handleAction("undo")}>
                         <UndoOutlinedIcon fontSize="small" />
                         &nbsp; Undo
                       </MenuItem>
-                      <MenuItem  sx={{ fontSize: "small" }} onClick={handleRedo}><RedoOutlinedIcon fontSize="small" />
+                      <MenuItem  sx={{ fontSize: "small" }} onClick={()=>handleAction("redo")}><RedoOutlinedIcon fontSize="small" />
                                               &nbsp; Redo</MenuItem>
                                           <Divider/>
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}><ContentCutOutlinedIcon fontSize="small" />
+                      <MenuItem sx={{ fontSize: "small" }} onClick={()=>handleAction("cut")}><ContentCutOutlinedIcon fontSize="small" />
                         &nbsp; Cut</MenuItem>
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}><ContentCopyOutlinedIcon fontSize="small" />
+                      <MenuItem sx={{ fontSize: "small" }} onClick={()=>handleAction("copy")}><ContentCopyOutlinedIcon fontSize="small" />
                         &nbsp; Copy</MenuItem>
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}><ContentPasteOutlinedIcon fontSize="small" />
+                      <MenuItem sx={{ fontSize: "small" }} onClick={()=>handleAction("paste")}><ContentPasteOutlinedIcon fontSize="small" />
                         &nbsp; Paste</MenuItem>
                     </MenuList>
                   </ClickAwayListener>

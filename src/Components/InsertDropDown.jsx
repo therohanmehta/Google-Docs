@@ -51,7 +51,14 @@ export default function InsertDropDown() {
       setOpen(false);
     }
   }
+  function handleAddHorizontalRule() {
+    document.execCommand('insertHorizontalRule')
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
 
+    setOpen(false);
+  }
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
@@ -121,7 +128,7 @@ export default function InsertDropDown() {
                       <InsertChartOutlinedIcon fontSize="small" />
                         &nbsp; Chart
                       </MenuItem>
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                      <MenuItem sx={{ fontSize: "small" }} onClick={handleAddHorizontalRule}>
                       <HorizontalRuleOutlinedIcon fontSize="small" />
                         &nbsp; Horizontal line
                       </MenuItem>

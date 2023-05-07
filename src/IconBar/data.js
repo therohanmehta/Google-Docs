@@ -8,54 +8,49 @@ import { ImUnderline } from "react-icons/im";
 import { MdOutlineFormatColorText } from "react-icons/md";
 import { FaHighlighter } from "react-icons/fa";
 import { MdOutlineInsertPhoto } from "react-icons/md";
-import {BiAlignLeft } from "react-icons/bi";
-import {MdOutlineInsertLink } from "react-icons/md";
-import {BiCommentAdd } from "react-icons/bi";
-import {MdFormatLineSpacing } from "react-icons/md";
-import {MdChecklist } from "react-icons/md";
-import {MdFormatListBulleted } from "react-icons/md";
-import {MdFormatListNumbered } from "react-icons/md";
-import {MdFormatIndentDecrease } from "react-icons/md";
-import {MdFormatIndentIncrease } from "react-icons/md";
-import {MdFormatClear } from "react-icons/md";
+import { BiAlignLeft } from "react-icons/bi";
+import { MdOutlineInsertLink } from "react-icons/md";
+import { BiCommentAdd } from "react-icons/bi";
+import { MdFormatLineSpacing } from "react-icons/md";
+import { MdChecklist } from "react-icons/md";
+import { MdFormatListBulleted } from "react-icons/md";
+import { MdFormatListNumbered } from "react-icons/md";
+import { MdFormatIndentDecrease } from "react-icons/md";
+import { MdFormatIndentIncrease } from "react-icons/md";
+import { MdFormatClear } from "react-icons/md";
 import { BiUndo } from "react-icons/bi";
 
+export const fontFamily = [
+  "serif",
+  "arial",
+  "sans-serif",
+  "monospace",
+  "cursive",
+  "fantasy",
+  "system-ui",
+  "ui-serif",
+  "ui-sans-serif",
+  "ui-monospace",
+  "ui-rounded",
+  "emoji",
+  "math",
+  "fangsong",
+  "Georgia",
+  "Times New Roman",
+  "Impact",
+];
 
-export const iconArray = [
-    {
-        icon: <BiUndo />,
-        action: 'undo'
-    },
-    {
-        icon: <BiRedo />,
-        action: 'redo'
-    },
-    {
-        icon: <AiOutlinePrinter />,
-        action: 'undo'
-    },
-    {
-        icon: <BiUndo />,
-        action: 'undo'
-    },
-    {
-        icon: <BiUndo />,
-        action: 'undo'
-    },
-    {
-        icon: <BiUndo />,
-        action: 'undo'
-    },
-    {
-        icon: <BiUndo />,
-        action: 'undo'
-    },
-    {
-        icon: <BiUndo />,
-        action: 'undo'
-    },
-    {
-        icon: <BiUndo />,
-        action: 'undo'
-    },
+export const size = [
+  "50%",
+  "75%",
+  "90%",
+  "100%",
+  "125%",
+  "150%",
+  "175%",
+  "200%",
+];
+
+export const fontSize = [
+  1,2,3,4,5,6,7
 ]
