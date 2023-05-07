@@ -32,9 +32,12 @@ width: 100%;
   font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
   margin-top: 10px;
 }
-.leftSection > span {
+.leftSection > input {
   font-size: 18px;
   height: 1rem;
+  border: none;
+  width: 10rem;
+  padding: 3px;
 }
 .header {
   display: flex;

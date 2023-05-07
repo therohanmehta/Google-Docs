@@ -32,7 +32,7 @@ export default function MenuBar() {
         <div className={styles.innerWrapper}>
           <div className={styles.header}>
             <div className={styles.leftSection}>
-              <span id="fileName" onChange={() => setFileName(document.getElementById('fileName').innerText)} contentEditable="true">{ fileName}</span>&nbsp;
+              <input  value={fileName} onChange={(e) => setFileName(e.target.value)} />&nbsp;
               {isFav ? <StarOutlinedIcon onClick={() => setIsFav(!isFav)} style={{color:'royalblue'}} fontSize="small"/>
                 : <StarBorderOutlinedIcon onClick={() => setIsFav(!isFav)}  fontSize="small"/>}   
               <DriveFileMoveOutlinedIcon fontSize="small" />

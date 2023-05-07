@@ -146,29 +146,7 @@ function ActionBar() {
                 <FontSizeDropDown/>
         </div>
         
-  {/* <FormControl className={style.zoom} sx={{ m: 1 }}>
-            <Select
-              value={zoom}
-              onChange={handleChange}
-              displayEmpty
-              sx={{
-                border: "none",
-                
-              }}
-              inputProps={{ "aria-label": "Without label" }}
-              className={style.Select}
-            >
-              <MenuItem value="">100%</MenuItem>
-              <MenuItem>Fit</MenuItem>
-              <MenuItem value={50}>50%</MenuItem>
-              <MenuItem value={75}>75%</MenuItem>
-              <MenuItem value={90}>90%</MenuItem>
-              <MenuItem value={100}>100%</MenuItem>
-              <MenuItem value={125}>125%</MenuItem>
-              <MenuItem value={150}>150%</MenuItem>
-              <MenuItem value={200}>200%</MenuItem>
-            </Select>
-          </FormControl> */}
+ 
 </form>
          
         </div>

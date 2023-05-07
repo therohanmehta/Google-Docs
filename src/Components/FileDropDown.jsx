@@ -13,13 +13,14 @@ import { Divider } from "@mui/material";
 import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
-import { useRecoilValue } from "recoil";
-import { atomInputRef } from "../AtomData/atom";
+import { useRecoilValue,useRecoilState } from "recoil";
+import { atomInputRef,atomFileName } from "../AtomData/atom";
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf';
 
 export default function FileDropDown() {
   const inputRef = useRecoilValue(atomInputRef)
+  const [fileNameRef,setFileNameRef ]= useRecoilState(atomFileName)
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -35,10 +36,11 @@ export default function FileDropDown() {
     setOpen(false);
   };
   function handleNew() {
-    
+    setFileNameRef('New Document')
     inputRef.current.innerHTML = ""
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
+
     }
 
     setOpen(false);
@@ -68,7 +70,7 @@ export default function FileDropDown() {
     compress: false,
   });
   pdfDoc.addImage(imageData, "PNG", 0, 0, 210, 297, "", "FAST");
-    pdfDoc.save(`new.pdf`);
+    pdfDoc.save(`${fileNameRef}.pdf`);
   
   }
   // return focus to the button when we transitioned from !open -> open

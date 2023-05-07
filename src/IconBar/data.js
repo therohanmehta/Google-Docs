@@ -43,11 +43,9 @@ export const fontFamily = [
 export const size = [
   "50%",
   "75%",
-  "90%",
   "100%",
   "125%",
   "150%",
-  "175%",
   "200%",
 ];
 

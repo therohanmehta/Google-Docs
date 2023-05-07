@@ -15,7 +15,6 @@ import ContentPasteOutlinedIcon from "@mui/icons-material/ContentPasteOutlined";
 import { atom, useRecoilValue } from "recoil";
 import { atomInputRef } from "../AtomData/atom";
 import { Divider } from "@mui/material";
-
 export default function EditDropDown() {
   const inputRef = useRecoilValue(atomInputRef)
   const [open, setOpen] = React.useState(false);

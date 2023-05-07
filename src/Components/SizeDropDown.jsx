@@ -24,16 +24,18 @@ export default function SizeDropDown() {
 
     if (size === "100%") {
       inputRef.current.style.transform = "scale(1,1)";
-    } else if (size === "150%") {
-      inputRef.current.style.transform = "scale(1.5,1)";
-    } else if (size === "200%") {
-      inputRef.current.style.transform = "scale(2,1)";
     } else if (size === "50%") {
-      inputRef.current.style.transform = "scale(0.65,0.65)";
-    } else if (size === "25%") {
-      inputRef.current.style.transform = "scale(0.5,0.5)";
+      inputRef.current.style.transform = "scale(0.5,1)";
     } else if (size === "75%") {
       inputRef.current.style.transform = "scale(0.8,1)";
+    }
+     else if (size === "125%") {
+      inputRef.current.style.transform = "scale(1.25,1)";
+    }
+    else if (size === "150%") {
+      inputRef.current.style.transform = "scale(1.5,1)";
+    } else if (size === "200%") {
+      inputRef.current.style.transform = "scale(1.7,1)";
     }
   }
 
