@@ -19,6 +19,7 @@ import HelpDropDown from '../Components/HelpDropDown'
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import { useRecoilState } from "recoil";
 import { atomFileName } from "../AtomData/atom";
+
 export default function MenuBar() {
 
   const [fileName, setFileName] = useRecoilState(atomFileName)
@@ -31,7 +32,7 @@ export default function MenuBar() {
         <div className={styles.innerWrapper}>
           <div className={styles.header}>
             <div className={styles.leftSection}>
-              <span id="fileName" onKeyUp={()=>setFileName(document.getElementById('fileName').innerText)} contentEditable="true">Untitled Document</span>&nbsp;
+              <span id="fileName" onKeyUp={() => setFileName(document.getElementById('fileName').innerText)} contentEditable="true">{ fileName}</span>&nbsp;
               {isFav ? <StarOutlinedIcon onClick={() => setIsFav(!isFav)} style={{color:'royalblue'}} fontSize="small"/>
                 : <StarBorderOutlinedIcon onClick={() => setIsFav(!isFav)}  fontSize="small"/>}   
               <DriveFileMoveOutlinedIcon fontSize="small" />

@@ -15,6 +15,9 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
 import { useRecoilValue } from "recoil";
 import { atomInputRef } from "../AtomData/atom";
+import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf';
+
 export default function FileDropDown() {
   const inputRef = useRecoilValue(atomInputRef)
   const [open, setOpen] = React.useState(false);
@@ -48,7 +51,26 @@ export default function FileDropDown() {
       setOpen(false);
     }
   }
+  async function downloadPdf() {
 
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+    const sheetContent = inputRef.current;
+  const canvas = await html2canvas(sheetContent,);
+  const imageData = canvas.toDataURL("image/png", 1.0);
+  const pdfDoc = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "a4",
+    compress: false,
+  });
+  pdfDoc.addImage(imageData, "PNG", 0, 0, 210, 297, "", "FAST");
+    pdfDoc.save(`new.pdf`);
+  
+  }
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
@@ -107,7 +129,7 @@ export default function FileDropDown() {
                       </MenuItem>
                       
                                           <Divider/>
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
+                      <MenuItem sx={{ fontSize: "small" }} onClick={downloadPdf}>
                       <FileDownloadOutlinedIcon fontSize="small"/>&nbsp;  Download
                                           </MenuItem>
                                           

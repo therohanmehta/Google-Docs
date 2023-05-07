@@ -26,11 +26,12 @@ import {MdFormatIndentDecrease } from "react-icons/md";
 import {MdFormatIndentIncrease } from "react-icons/md";
 import {MdFormatClear } from "react-icons/md";
 import { useRecoilValue } from "recoil";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import { fontFamily } from "../IconBar/data";
 import FontJustifyDropDown from "../Components/FontJustifyDropDown";
 import { atomFileName, atomInputRef } from "../AtomData/atom";
+import FontFamilyDropDown from "../Components/FontFamilyDropDown";
+import FontSizeDropDown from "../Components/FontSizeDropDown";
+import SizeDropDown from "../Components/SizeDropDown";
 
 function ActionBar() {
   const inputRef = useRecoilValue(atomInputRef)
@@ -129,16 +130,14 @@ function ActionBar() {
         <div className={style.zoomSelector}>
         <form action="/action_page.php">
   
-  <select name="cars" id="cars">
-    <option value="volvo">50%</option>
-    <option value="saab">75%</option>
-    <option value="opel">90%</option>
-    <option value="audi">100%</option>
-    <option value="audi">125%</option>
-    <option value="audi">150%</option>
-    <option value="audi">200%</option>
-  </select>
 
+            <div style={{display:'flex'}}>
+            <SizeDropDown />
+         
+              <FontFamilyDropDown />
+              <FontSizeDropDown/>
+        </div>
+        
   {/* <FormControl className={style.zoom} sx={{ m: 1 }}>
             <Select
               value={zoom}
