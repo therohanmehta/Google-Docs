@@ -10,10 +10,9 @@ function App() {
   return (
     <>
       <div className='header'>
-        <MenuBar />
+        <MenuBar /> 
        <ActionBar/>
        </div>
-      {/* <IconBar/> */}
        <TextArea/>
        
 

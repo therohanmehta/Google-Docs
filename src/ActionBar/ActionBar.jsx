@@ -184,9 +184,7 @@ function ActionBar() {
         <Button
            MdOutlineInsertLink={<MdOutlineInsertLink style={{ fontSize: "1rem" }} />}
           />
-            <Button
-           BiCommentAdd={<BiCommentAdd style={{ fontSize: "1rem" }} />}
-          />
+            <Button BiCommentAdd={<BiCommentAdd style={{ fontSize: "1rem" }} />}/>
         <button onClick={handleInputImage}>
          <MdOutlineInsertPhoto style={{ fontSize: "1rem" }} />
           </button>

@@ -9,9 +9,12 @@ import Stack from "@mui/material/Stack";
 import styles from './DropDown.module.css'
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
+import { useRecoilState } from "recoil";
 import { Divider } from "@mui/material";
+import { showRuler } from "../AtomData/atom";
 export default function ViewDropDown() {
   const [open, setOpen] = React.useState(false);
+  const [rulerVisibility , setRulerVisibility]=useRecoilState(showRuler)
   const anchorRef = React.useRef(null);
 
   const handleToggle = () => {
@@ -44,6 +47,10 @@ export default function ViewDropDown() {
 
     prevOpen.current = open;
   }, [open]);
+
+function handleRuler(){
+  setRulerVisibility(!rulerVisibility)
+}
 
   return (
     <>
@@ -93,9 +100,13 @@ export default function ViewDropDown() {
                       <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
                       <DoneOutlinedIcon fontSize="small"/>&nbsp; Show print layout
                       </MenuItem>
-                      <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
-                      <DoneOutlinedIcon fontSize="small"/>&nbsp; Show ruler
-                      </MenuItem>
+
+                    { rulerVisibility?<MenuItem sx={{ fontSize: "small" }}  onClick={handleRuler}>
+                      <DoneOutlinedIcon fontSize="small"/>&nbsp; Hide Ruler
+                      </MenuItem>: <MenuItem sx={{ fontSize: "small" }}  onClick={handleRuler}>
+                      <DoneOutlinedIcon fontSize="small"/>&nbsp; Show Ruler
+                      </MenuItem>}
+
                       <MenuItem sx={{ fontSize: "small" }} onClick={handleClose}>
                       <DoneOutlinedIcon/>&nbsp; Show outline
                       </MenuItem>

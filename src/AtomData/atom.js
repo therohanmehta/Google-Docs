@@ -10,3 +10,7 @@ export const atomFileName = atom({
     key: 'atomFileName',
     default:'Untitled Document'
 })
+export const showRuler=atom({
+    key:'showRuler',
+    default:true
+})
