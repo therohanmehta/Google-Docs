@@ -80,8 +80,15 @@ function ActionBar() {
   }
   function handleImageChange(event) {
     if (event.target.files[0] ) {
-      console.log(event.target.files[0])
-      document.execCommand("insertImage","",URL.createObjectURL(event.target.files[0]));
+
+      let imgUrl = URL.createObjectURL(event.target.files[0]);
+      let img = document.createElement("img");
+
+      img.style.maxWidth = "50%"; 
+      img.style.maxHeight = "50%"; 
+
+      img.src = imgUrl;
+      document.execCommand("insertHTML", false, img.outerHTML);
     }
   }
   async function downloadPDF (){
