@@ -5,6 +5,7 @@ import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { BiUndo } from "react-icons/bi";
+import { AiOutlineStrikethrough } from "react-icons/ai";
 import { BiRedo } from "react-icons/bi";
 import { AiOutlinePrinter } from "react-icons/ai";
 import { MdSpellcheck } from "react-icons/md";
@@ -75,6 +76,10 @@ function ActionBar() {
   }
   function handleRedo() {
     document.execCommand("redo")
+
+  }
+  function handleStrike() {
+    document.execCommand("strikeThrough")
 
   }
   function handleInputImage() {
@@ -153,6 +158,7 @@ function ActionBar() {
         <div className={style.textType}>
           <button onClick={handleBold}><BsTypeBold  style={{ fontSize: "1rem", }} /></button>
           <button onClick={handleItalic}><BiItalic style={{ fontSize: "1rem" }} /></button>
+        <button  onClick={handleStrike}><AiOutlineStrikethrough style={{ fontSize: "1rem" }} /></button>
           <button onClick={handleUnderLine}><ImUnderline style={{ fontSize: "1rem", }} /></button>
           <button onClick={handleColorClick}><MdOutlineFormatColorText  style={{ color:color, fontSize: "1rem" }} /></button>
           <input id={style.inputColor} type='color' ref={colorRef} onChange={handleColorChange}  />
@@ -160,9 +166,6 @@ function ActionBar() {
           <input id={style.inputColor} type='color' ref={bcgColorRef} onChange={handleBcgColorChange}  />
         </div>
         <div className={style.boxD}>
-        <Button
-           MdOutlineInsertLink={<MdOutlineInsertLink style={{ fontSize: "1rem" }} />}
-          />
             <Button BiCommentAdd={<BiCommentAdd style={{ fontSize: "1rem" }} />}/>
         <button onClick={handleInputImage}>
          <MdOutlineInsertPhoto style={{ fontSize: "1rem" }} />
